@@ -39,9 +39,8 @@
 						alert(res.errmsg)
 					}else{
 						localStorage.setItem("myinfo",JSON.stringify(res));
-						setTimeout(function(){
-							_this.$router.push({path:"/"})
-						},2000)
+            alert("登录成功")
+						_this.$router.push({path:"/"})
 					}
 				},"json")
 			}

@@ -30,8 +30,8 @@
        <div class="form-group"> 
           <input type="text" class="form-control" v-model="list.keyword" placeholder="关键字" /> 
        </div> 
-       <div class="form-group" style="display:flex"> 
-          <input type="file" id="file" class="form-control-file" /> 
+       <div class="form-group file-box" style="display:flex"> 
+          <input type="file" id="file" class="file-btn" /> 
           <img src="" width="100" height="100" id="imgg" style="background: #fff" /> 
        </div>
        <div class="form-group"> 
@@ -153,4 +153,25 @@ export default {
     	color:#fff;
     	background: green;
     }
+    .file-box{
+        display: inline-block;
+        position: relative;
+        padding: 3px 5px;
+        overflow: hidden;
+        color:#fff;
+        background-color: #ccc;
+      }
+      .file-btn{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        outline: none;
+        background-color: transparent;
+        filter:alpha(opacity=0);
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+      }
 </style>

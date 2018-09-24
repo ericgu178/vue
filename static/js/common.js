@@ -67,4 +67,8 @@ function cutstr(str, len) {
             return str;
         }
     }
-export {getLocalTime,cutstr,getObjectURL,getBase64Image}
+function suijishu(){
+    var suijishu = Math.round(Math.random()*1000);
+    return suijishu
+}
+export {getLocalTime,cutstr,getObjectURL,getBase64Image,suijishu}

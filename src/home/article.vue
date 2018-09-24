@@ -16,7 +16,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <h2 class="c_titile">{{article.title}}</h2>
-                            <p class="box_c"><span class="d_time">发布时间：{{article.post_time}}</span><span>编辑：<a href="mailto:wfyv@qq.com">{{article.user}}</a></span><span>阅读（88646）</span></p>
+                            <p class="box_c"><span class="d_time">发布时间：{{article.post_time}}</span><span>编辑：<a href="mailto:wfyv@qq.com">{{article.user}}</a></span><span>阅读（{{reads}}）</span></p>
 <!-- 段落 -->
                             <img :src="article.imgsrc" height="600" width="100%">
                             <ul class="infos">
@@ -25,13 +25,7 @@
 <!-- 关键字 -->
                             <div class="keybq">
                                 <p><span>关键字</span>：<a class="label label-default">个人博客</a><a class="label label-default">{{article.keyword}}</a></p>
-                            </div>                  
-                            
-                           <!--  <div class="nextinfo">
-                                <p class="last">上一篇：<a href="#">免费收录网站搜索引擎登录口大全</a></p>
-                                <p class="next">下一篇：<a href="#">javascript显示年月日时间代码</a></p>
-                            </div> -->
-                            
+                            </div>                        
                         </div>
                     </div>
                     <!-- 功能模块 -->
@@ -57,7 +51,7 @@
                                         </div>
                                         <div class="media-body Reviewdisplay">
                                             <h4 class="media-heading">{{list.nickname}}</h4>
-                                            {{list.content}} ({{list.create_time}}) 
+                                            {{list.content}} ({{list.create_time}})
                                             <!-- 回复按钮 -->
                                             <span  :class="`btn btn-default h`+list.id" style="margin-left:50px;opacity: 0" @click="displayhuifu(list.id)">回复</span>
                                             <!-- 二级回复出现 -->
@@ -100,12 +94,10 @@
                     <!-- 右面大部分 -->
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <h3 class="panel-title">最新发布</h3>
+                        <h3 class="panel-title">我热爱着</h3>
                       </div>
                       <div class="panel-body">
-                            <ul class="list-unstyled sidebar">              
-                                                           
-                            </ul>
+                           育碧游戏 彩虹六号，全境封锁
                       </div>
                     </div>
                     <!-- 右面小部分 -->
@@ -113,11 +105,9 @@
                       <div class="panel-heading">
                         <h3 class="panel-title">友情链接</h3>
                       </div>
-                      <div class="panel-body">
-                        <div class="newContent">
-                            
-                        </div>
-                      </div>
+                      <ul class="list-group">
+                                  <li class="list-group-item" v-for="list in url"><a :href="list.url" target="black">{{list.title}}</a></li>
+                      </ul>
                     </div>
                     <!-- 右面小部分end -->
                 </div>
@@ -131,7 +121,7 @@
 <script>
 	import header from '../components/header.vue'
   import footer from '../components/footer.vue'
-  import {getLocalTime} from '../../static/js/common.js'
+  import {getLocalTime,suijishu} from '../../static/js/common.js'
 export default {
 	components:{
 		"headbar":header,
@@ -143,7 +133,15 @@ export default {
            articleid:this.$route.query.id,
            article:{},
            pin:"",
-           replycontent:""
+           replycontent:"",
+           reads:suijishu(),
+           url:[{
+            url:"http://guxuejian.top/wx/index.php/home/mp.html",
+            title:'微信二次开发demo'
+           },{
+            url:"http://guxuejian.top/wxq/index.php/",
+            title:'微信墙'
+           },]
 		}
 	},
   created(){
@@ -207,6 +205,10 @@ export default {
             articleid:this.articleid,
            },
            res=>{
+            if(res.code){
+                 alert("你点过赞了呦");
+                 return
+            }
             this.content()
            })
        },
@@ -240,4 +242,7 @@ export default {
     margin:0 auto;
     text-align: center;
   }
+  a,a:hover,a:active{
+  text-decoration:none;
+}
 </style>

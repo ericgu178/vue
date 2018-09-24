@@ -52,12 +52,10 @@
                     <!-- 右面小部分 -->
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <h3 class="panel-title">友情链接</h3>
+                        <h3 class="panel-title">关注我的微信公众号</h3>
                       </div>
                       <div class="panel-body">
-                        <div class="newContent">
-                            
-                        </div>
+                        <img src="../../static/img/mp.jpg" width=230 height=230>
                       </div>
                     </div>
                     <!-- 右面小部分end -->
@@ -83,7 +81,7 @@ export default {
         item:[{
           title:'1.熟悉thinkphp框架，熟悉mysql数据库'
         },{
-          title:'2.熟悉jquery，ajax，html5+css3(太弱了，审美不好)'
+          title:'2.熟悉jquery，ajax，html5+css3(作者css太弱了，审美太差劲。。)'
         },{
           title:'3.熟悉微信二次开发，微信小程序制作'
         },{

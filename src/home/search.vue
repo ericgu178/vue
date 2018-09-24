@@ -11,7 +11,7 @@
       	<div class="panel panel-default">
     		<div class="panel-heading">
         		<h3 class="panel-title">
-            		搜索关键字：{{keyword}}
+            		搜索关键字：<span style="color:red">“{{keyword}}”</span>
         		</h3>
     		</div>
     		<ul class="list-group">
